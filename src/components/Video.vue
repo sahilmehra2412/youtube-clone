@@ -1,5 +1,5 @@
 <template>
-    <div class="flex" :class="(isChannel)? 'image-channel-div':null">
+    <div class="flex" :class="(isChannel)? 'image-channel-div':'channel-div'">
         <div class="image">
             <img :class="(isChannel)? 'image-channel':null" :src="video.snippet.thumbnails.medium.url" :alt="video.snippet.title">
         </div>
@@ -81,5 +81,29 @@ export default {
     }
     .image-channel-div{
         height: 140px;
+    }
+    @media screen and (max-width : 500px){
+        .channel-div>.image{
+            width: 100%;
+        }
+        .channel-div img{
+            width: 100%;
+        }
+        .flex{
+            flex-direction: column;
+        }
+        .info{
+            padding: 0;
+        }
+        .title-text{
+            text-align: justify;
+        }
+        .image-channel-div{
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        .image-channel-div .image{
+            width: auto;
+        }
     }
 </style>

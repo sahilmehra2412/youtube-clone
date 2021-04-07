@@ -36,16 +36,13 @@ export default {
     components: {
         Video
     },
-    created(){
-        console.log(this.api_key);
-    }
 
 }
 </script>
 
 <style scoped>
     input{
-        width: 25%;
+        width: 40%;
         caret-color: #e1e1e1;
         background: #121212;
         height: 2rem;
@@ -67,5 +64,10 @@ export default {
     }
     input:focus{
         outline: #e1e1e1 2px;
+    }
+    @media screen and (max-width: 1000px) {
+        input{
+            width: 50%;
+        }
     }
 </style>
