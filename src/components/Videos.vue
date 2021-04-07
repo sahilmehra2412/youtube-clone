@@ -9,13 +9,15 @@
 <script>
 
 import Video from './Video'
+import {api_key} from './_creds'
 
 export default {
     name: 'Videos',
     data () {
         return{
             q : null,
-            youtube_object : null
+            youtube_object : null,
+            api_key : api_key
         }
     },
     methods: {
@@ -23,7 +25,7 @@ export default {
             if (this.q==null){
                 return;
             }
-            let url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${this.q}&key=AIzaSyD7v83WRMsFxgZwaV6KK5gMKBk_1RhCUkA&maxResults=20`
+            let url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${this.q}&key=${this.api_key}&maxResults=20`
             fetch(url).then(response=>{
                 return response.json()
             }).then(data=>{
@@ -34,6 +36,9 @@ export default {
     components: {
         Video
     },
+    created(){
+        console.log(this.api_key);
+    }
 
 }
 </script>
